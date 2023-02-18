@@ -4,7 +4,7 @@ class AudioPlayer {
         this.songs = [];
         this.queue = [];
         this.player = new Audio();
-        const src = "songs/Funky_Mi_Peor_Error_feat_Marcela_Gandara_.mp3";
+        const src = "songs/MiPeorError.mp3";
 
         this._gui = {
             progressBar: { value: undefined, DOMElement: undefined },
