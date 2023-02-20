@@ -54,7 +54,7 @@ class AudioPlayer {
             const pBar = this.gui.progressBar.DOMElement.querySelector("div");
             pBar.style.width = `${progress}%`;
         }
-        this.player.volume = 0.05;
+        this.player.volume = 1;
     }
 
     _initButtons(...params) {
