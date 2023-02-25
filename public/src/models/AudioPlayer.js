@@ -1,10 +1,10 @@
-class AudioPlayer {
+export class AudioPlayer {
 
     constructor(params) {
         this.songs = [];
         this.queue = [];
         this.player = new Audio();
-        const src = "songs/MiPeorError.mp3";
+        const src = params?.src || "songs/Emarosa_Sure.mp3";
 
         this._gui = {
             progressBar: { value: undefined, DOMElement: undefined },
@@ -54,7 +54,7 @@ class AudioPlayer {
             const pBar = this.gui.progressBar.DOMElement.querySelector("div");
             pBar.style.width = `${progress}%`;
         }
-        this.player.volume = 1;
+        this.player.volume = 0.05;
     }
 
     _initButtons(...params) {
@@ -81,7 +81,7 @@ class AudioPlayer {
     }
 
     _addClickEvent(element, callback) {
-        console.log("DEBUG", element, callback)
+        // console.log("DEBUG", element, callback)
         if (element instanceof HTMLElement) {
             element.onclick = callback;
         } else {
@@ -128,6 +128,10 @@ class AudioPlayer {
         }
     }
 
+    _updateCover(value) {
+        this.gui.albumCover.DOMElement.style.backgroundImage = `url("${value}")`;
+    }
+
     _updateTextGUIElement(el) {
         if (el.DOMElement instanceof HTMLElement) {
             el.DOMElement.innerHTML = el.value;
@@ -147,13 +151,14 @@ class AudioPlayer {
                 };
             }
         }
-        // asignación de valores
+        // asignaciÃ³n de valores
         this._assignValues(this._gui, elements, actions);
-        // actualización de elementos
+        // actualizaciÃ³n de elementos
         this._updateGUIElement(this.gui.totalTime);
         this._updateGUIElement(this.gui.currentTime);
         this._updateTextGUIElement(this.gui.songName);
         this._updateTextGUIElement(this.gui.artistName);
+        this._updateCover(this.gui.albumCover.value);
     }
 
     get gui() {
