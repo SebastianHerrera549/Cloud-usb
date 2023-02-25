@@ -10,8 +10,8 @@ const firebaseConfig = {
   projectId: "clound-usb",
   storageBucket: "clound-usb.appspot.com",
   messagingSenderId: "8332067792",
-  appId: "1:8332067792:web:3aa417c88bd714d4222fd5",
-  measurementId: "G-Z110ZLGNLV"
+  appId: "1:8332067792:web:9f53e51a44018ff7222fd5",
+  measurementId: "G-R9T2WCY95X"
 };
 initializeApp(firebaseConfig);
 const db = getFirestore();
